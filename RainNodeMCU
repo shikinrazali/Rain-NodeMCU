@@ -1,23 +1,13 @@
-/*
- * This ESP8266 NodeMCU code was developed by newbiely.com
- *
- * This ESP8266 NodeMCU code is made available for public use without any restriction
- */
-
-#define POWER_PIN D7  // The ESP8266 pin that provides the power to the rain sensor
 #define AO_PIN    A0  // The ESP8266 pin connected to AO pin of the rain sensor
 
 void setup() {
   // Initialize the Serial to communicate with the Serial Monitor.
   Serial.begin(9600);
-  pinMode(POWER_PIN, OUTPUT);  // Configure the power pin pin as an OUTPUT
 }
 
 void loop() {
-  digitalWrite(POWER_PIN, HIGH);  // turn the rain sensor's power  ON
   delay(10);                      // wait 10 milliseconds
   int rainValue = analogRead(AO_PIN);
-  digitalWrite(POWER_PIN, LOW);  // turn the rain sensor's power OFF
 
   Serial.println(rainValue);  // print out the analog value
   delay(1000);                // pause for 1 sec to avoid reading sensors frequently to prolong the sensor lifetime
